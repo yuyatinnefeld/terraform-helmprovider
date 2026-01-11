@@ -1,0 +1,38 @@
+# GLOBAL PARAMETER
+global:
+  clusterName: cluster1
+  namespace: istio-testapp
+  replicaCount: 1
+ 
+# Testapp PARAMETER
+httpbin:
+  image:
+    repository: docker.io/mccutchen/go-httpbin
+    tag: v2.15.0
+    pullPolicy: IfNotPresent
+  service:
+    name: httpbin
+    type: LoadBalancer
+    targetPort: 8080
+    port: 8080
+  serviceAccount:
+    name: httpbin
+  labels:
+    app: httpbin
+    version: v1
+
+fortio:
+  image:
+    repository: fortio/fortio
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    name: fortio
+    type: LoadBalancer
+    targetPort: 80
+    port: 8080
+  serviceAccount:
+    name: fortio
+  labels:
+    app: fortio
+    version: v1
