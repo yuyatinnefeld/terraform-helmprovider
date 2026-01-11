@@ -1,0 +1,13 @@
+# Terraform Ingore Files
+*.tfstate
+*.tfstate.backup
+.terraform/
+crash.log
+.terraform.lock.hcl
+
+# Local .env files
+.env.local
+.env.*.local
+
+# macOS files
+.DS_Store
