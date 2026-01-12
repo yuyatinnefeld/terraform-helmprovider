@@ -1,16 +1,20 @@
-resource "helm_release" "my_app" {
+resource "helm_release" "istio_testapp" {
   name       = "istio-testapp-${var.stage}"
   namespace  = "istio-testapp"
 
-  # Local chart path (relative or absolute)
+  # Local Helmchart Template path
   chart     = "${path.module}/${var.chart_path}"
 
-  # Optional: override values
+  # Local Helmchart Values path
   values = [
     file("${path.module}/${var.chart_variable}")
   ]
 
-  # Optional but recommended
   create_namespace = true
-  dependency_update = true
+
+  # Speed up installs and upgrades by skipping waiting for pods to be ready
+  wait    = false # Disable wait to speed up installs and upgrades
+  atomic  = false # Disable atomic to avoid rollbacks on failure
+  timeout = 300 # 5 minutes
+  dependency_update = false # Disable automatic dependency updates
 }
