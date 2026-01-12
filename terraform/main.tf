@@ -1,6 +1,6 @@
 resource "helm_release" "istio_testapp" {
-  name       = "istio-testapp-${var.stage}"
-  namespace  = "istio-testapp"
+  name       = "${var.namespace}-${var.stage}"
+  namespace  = "${var.namespace}"
 
   # Local Helmchart Template path
   chart     = "${path.module}/${var.chart_path}"

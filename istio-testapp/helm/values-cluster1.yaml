@@ -1,7 +1,7 @@
 # GLOBAL PARAMETER
 global:
   clusterName: cluster1
-  namespace: istio-testapp
+  namespace: istio-testapp-cloud
   replicaCount: 1
  
 # Testapp PARAMETER

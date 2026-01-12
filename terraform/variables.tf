@@ -1,16 +1,16 @@
 variable "namespace" {
   type    = string
-  default = "default"
+  default = "istio-testapp-cloud"
 }
 
 variable "chart_path" {
   type    = string
-  default = "../helm"
+  default = "../istio-testapp/helm"
 }
 
 variable "chart_variable" {
   type    = string
-  default = "../helm/values-cluster1.yaml"
+  default = "../istio-testapp/helm/values-cluster1.yaml"
 }
 
 variable "stage" {
